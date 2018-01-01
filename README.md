@@ -14,3 +14,18 @@ You can switch between clouds without changing your device logic, and it'll
 continue to work.
 
 See `fs/init.js` file for the idiomatic usage of shadow objects.
+
+## Screenshot on management dashboard
+
+This is an animated recording on
+[device management dashboard](https://dash.mongoose-os.com) . ESP8266 NodeMCU
+was used - note that built-in blue LED is inverted: it turns on when GPIO
+is pulled down, and turns off when it is pulled high:
+
+![](img2.gif)
+
+## Screenshot on AWS IoT
+
+Same device, same app, no code changes, works on AWS IoT the same way:
+
+![](img1.gif)
