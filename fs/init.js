@@ -12,7 +12,7 @@ Shadow.addHandler(function(event, obj) {
     Shadow.update(0, {reported: state});
   } else if (event === 'UPDATE_DELTA') {
     // Got delta. Iterate over the delta keys, handle those we know about.
-    for (let key in obj.state) {
+    for (let key in obj) {
       if (key === 'on') {
         // Shadow wants us to change local state - do it.
         state.on = obj.state.on;
