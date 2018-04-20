@@ -9,7 +9,7 @@ let state = {on: false};        // Device state - LED on/off status
 Shadow.addHandler(function(event, obj) {
   if (event === 'CONNECTED') {
     // Connected to shadow - report our current state.
-    Shadow.update(0, {reported: state});
+    Shadow.update(0, state);
   } else if (event === 'UPDATE_DELTA') {
     // Got delta. Iterate over the delta keys, handle those we know about.
     for (let key in obj) {
@@ -24,7 +24,7 @@ Shadow.addHandler(function(event, obj) {
       }
     }
     // Once we've done synchronising with the shadow, report our state.
-    Shadow.update(0, {reported: state});
+    Shadow.update(0, state);
   }
 });
 
@@ -32,5 +32,5 @@ Shadow.addHandler(function(event, obj) {
 load('api_timer.js');
 load('api_sys.js');
 Timer.set(5000, Timer.REPEAT, function() {
-  Shadow.update(0, {reported: {uptime: Sys.uptime()}});
+  Shadow.update(0, {uptime: Sys.uptime()});
 }, null);
